@@ -1,0 +1,65 @@
+﻿@model PagedList.IPagedList<Models.EF.Account>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="right__content">
+    <div class="right__title">Danh sách tài khoản</div>
+    <div class="right__table">
+        <div class="right__tableWrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Loại tài khoản</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.ID">
+                            <td>@item.ID</td>
+                            <td>@item.FullName</td>
+                            <td>@item.Email</td>
+                            <td>@item.Address</td>
+                            <td>@item.PhoneNumber</td>
+                            @if (item.Role == 1)
+                            {
+                                <td>Admin</td>
+                            }
+                            else
+                            {
+                                <td>Khách hàng</td>
+                            }
+                            <td class="right__iconTable"><a href="/Admin/Accounts/Edit/@item.ID">Sửa</a></td>
+                            <td class="right__iconTable">
+                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID },
+                               new AjaxOptions
+                               {
+                                   Confirm = "Do you want to delete this account?",
+                                   OnComplete = "$(this).closest('tr').remove()",
+                                   HttpMethod = "Delete"
+                               }, new { })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @ViewBag.searchString }), new PagedListRenderOptions
+       {
+           UlElementClasses = new string[] { "paged_list_ul" },
+           LiElementClasses = new string[] { "paged_list_li" },
+       })
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

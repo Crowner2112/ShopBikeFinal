@@ -1,0 +1,41 @@
+﻿@model ShopPhone.Areas.Admin.Models.LoginModel
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Assets/Client/css/login.css">
+    <title>Đăng nhập</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <!-- Sign In -->
+
+            <div class="user signinBx">
+                <div class="imgBx">
+                    <img src="~/Assets/Admin/image/login.jpg" alt="">
+                </div>
+                <div class="frmBx">
+                    @*@Html.Partial("_LoginPartial", Model.LoginModel)*@
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @Name = "myform", @onsubmit = "return validateForm();" }))
+                    {@*@Html.AntiForgeryToken()*@
+                    <h2>Đăng nhập</h2>
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "color: red" })
+                    @Html.TextBoxFor(model => model.Email, new { @Name = "email", @class = "form-control p_input", @autofocus = "autufocus", @placeholder = "Email" })
+                    @Html.PasswordFor(model => model.Password, new { @Name = "password", @class = "form-control p_input", @placeholder = "Mật khẩu" });
+                    <input type="submit" value="Đăng nhập"></input>
+                    <p class="signup">không có tài khoản? <a href="/Register">Đăng ký</a></p>
+                    <p class="signup">Trở về <a href="/Home">trang chủ</a></p>}
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="~/Assets/Admin/js/mainLogin.js"></script>
+</body>
+</html>

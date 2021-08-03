@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=3">
+    <title>Nhóm 4-ASP.NET</title>
+    <style media="all">
+        .main-slider__item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 3;
+        }
+
+        .product-sublist__img img {
+            max-width: 100%;
+        }
+
+        .newsDetail .post_content table img {
+            margin-bottom: 0;
+        }
+
+        @@media (max-width:767px) {
+            .newsDetail .post_content table tr td {
+                padding: 5px;
+            }
+        }
+    </style>
+    <link rel="icon" href="~/Assets/Client/images/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="stylesheet" href="~/wwwroot/css/main.css">
+    @RenderSection("Css", required: false)
+</head>
+
+<body>
+    <header class="header">
+        @Html.Partial("_Header")
+    </header>
+    <main class="main">
+        <div class="overlay" style="background-color: #ccc">
+            @RenderBody()
+        </div>
+    </main>
+    <footer class="footer">
+        @Html.Partial("_Footer")
+    </footer>
+    <script src="~/wwwroot/js/main.js"></script>
+    <link rel='stylesheet' id='product_css1-css' href='~/Assets/Client/css/product.css' type='text/css' media='all' />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var w = $(window).width();
+            $(".product-list__item-img").each(function (index, i) {
+                if (w >= 768) {
+                    if ($("html").hasClass('webp')) $(i).attr('src', $(i).attr('data-pcwebp'));
+                    else $(i).attr('src', $(i).attr('data-pc'));
+                } else {
+                    $(".page-slide__video-item").css({
+                        'background-image': 'url(~/Assets/Client/image/U3Nqx7BbRqs.jpg)',
+                    })
+                    if ($("html").hasClass('webp')) $(i).attr('src', $(i).attr('data-spwebp'));
+                    else $(i).attr('src', $(i).attr('data-sp'));
+                }
+            })
+            $(window).on('load', function (event) {
+                if (supportsVideoType('h264')) {
+                    setTimeout(function () {
+                        $(".page-slide__video-item").append(
+                            '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/U3Nqx7BbRqs?enablejsapi=1&autoplay=1&fs=0&iv_load_policy=3&rel=0&showinfo=0&playsinline=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+                        );
+                    }, 500)
+                } else {
+                    $(".page-slide__video-item").css({
+                        'background-image': 'url(~/Assets/Client/image/U3Nqx7BbRqs.jpg)',
+                    })
+                }
+            });
+
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

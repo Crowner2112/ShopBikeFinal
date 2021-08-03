@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var displayCategory = ViewData["CutListCategory"] as List<Models.EF.Category>;
+    var images = ViewData["Images"] as List<Models.EF.Image>;
+}
+
+<div class="overlay-content">
+    <p class="breadcrumb">
+        <span>
+            <span>
+                <a href="/Home">Trang chủ</a> » <span class="breadcrumb_last" aria-current="page">Xe</span>
+            </span>
+        </span>
+    </p>
+    <div class="overlay-title">
+        <h1>sản phẩm</h1>
+        <p class="seo-text" style="font-size:18px;text-align: justify;">
+            Các dòng xe máy Yamaha là gợi ý
+            không nên bỏ qua khi bạn muốn mua xe máy mới, với rất nhiều mẫu sản phẩm đa dạng ở các dòng xe
+            số, xe tay ga, xe moto (xe thể thao). Bên cạnh thiết kế trẻ trung, thời thượng, xe máy Yamaha
+            được trang bị các tính năng hiện đại cùng khả năng tiết kiệm nhiên liệu tuyệt vời.
+        </p>
+    </div>
+    <div class="product">
+        <div class="product-video">
+            <div class="page-slide">
+                <div class="page-slide__item">
+                    <div class="page-slide__video">
+                        <div class="page-slide__video-item" id="player"
+                             style="background-image: url('../../Assets/Client/images/U3Nqx7BbRqs.jpg') center no-repeat; background-size: cover; "
+                             data-video="U3Nqx7BbRqs"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-list">
+            <div class="product-row">
+                @foreach (var category in displayCategory)
+                {
+                    <div class="product-col">
+                        <div class="product-list__cat motorbike scooter">
+                            <div class="product-list__cat-name">
+                                <a href="#">
+                                    <h2>@category.Name</h2>
+                                </a>
+                            </div>
+                            <div class="product-list__row">
+                                @foreach (var image in images)
+                                {
+                                    if (image.Product.CategoryID == category.ID)
+                                    {
+                                        <div class="product-list__col">
+                                            <div class="product-list__item">
+                                                <div class="product-list__item-bg"></div>
+                                                <h3 class="product-list__item-name">
+                                                    <a href="/Product/Index/@image.ProductID">@image.Product.Name</a>
+                                                </h3>
+                                                <a href="/Product/Index/@image.ProductID" class="product-list__item-link">
+                                                    <img class="product-list__item-img notLazy" src="@image.Link" alt="@image.Product.Name">
+                                                </a>
+                                                <div class="product-list__item-btn">
+                                                    <a href="/Product/Index/@image.ProductID" class="btn btn-main shine">Xem thêm</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            shave('.news-row .news-item__title', 55)
+        });
+    </script>
+}

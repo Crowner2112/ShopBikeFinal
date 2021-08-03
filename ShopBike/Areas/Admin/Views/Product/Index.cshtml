@@ -1,0 +1,60 @@
+﻿@model PagedList.IPagedList<Models.EF.Product>
+@using PagedList.Mvc
+@{ ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var listImage = ViewData["Image"] as List<Models.EF.Image>;
+}
+
+<div class="right__title">Danh sách sản phẩm</div>
+<div class="right__table">
+    <div class="right__tableWrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Danh mục</th>
+                    <th>Ảnh</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
+                    <th>Số lượng còn</th>
+                    <th>Mô tả</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+    <tr id="row_@item.ID">
+        <td>@item.ID</td>
+        <td>@item.Category.Name</td>
+        <td><img src="@listImage.Where(x => x.ProductID == item.ID && x.MainPic == true).Select(x => x.Link).FirstOrDefault()" /></td>
+        <td>@item.Name</td>
+        <td>@Html.Raw(@String.Format("{0:#,##0}", @item.Price))đ</td>
+        <td>@item.Quantity</td>
+        <td>@item.Description</td>
+        <td class="right__iconTable"><a href="/Admin/Product/Edit/@item.ID">Sửa</a></td>
+        <td class="right__iconTable">
+            @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID },
+                                         new AjaxOptions
+                                         {
+                                             Confirm = "Do you want to delete this product?",
+                                             OnComplete = "$(this).closest('tr').remove()",
+                                             HttpMethod = "Delete"
+                                         }, new { })
+        </td>
+    </tr>
+}
+            </tbody>
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @ViewBag.searchString, @class = "paged-list" }), new PagedListRenderOptions
+        {
+            UlElementClasses = new string[] { "paged_list_ul" },
+            LiElementClasses = new string[] { "paged_list_li" },
+        })
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

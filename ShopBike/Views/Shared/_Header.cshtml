@@ -1,0 +1,67 @@
+﻿@{
+    var listCategory = Session["Categories"] as List<Models.EF.Category>;
+}
+
+<div class="header-row">
+    <div class="header-logo">
+        <a href="/">
+            <picture>
+                <source srcset=""
+                        type="image/webp">
+                <img src="~/wwwroot/Images/logo-yamaha.png"
+                     style="width: 120px;"
+                     alt="" class="webpexpress-processed">
+            </picture>
+        </a>
+    </div>
+    <nav class="navigation">
+        <div class="navigation-top">
+            <ul class="navigation-top__list">
+                @foreach (var category in listCategory)
+                {
+                    <li class="navigation-top__item top-search--hide" data-hover="true">
+                        <a class="navigation-top__link" href="#">@category.Name</a>
+                    </li>
+                }
+                <li class="navigation-top__item top-search--input">
+                    <div class="navigation-top__search hover">
+                        <form class="top-search" method="get" action="/">
+                            <input class="form-control" name="s"
+                                   placeholder="Tìm kiếm..."> <button class="btn-search">
+                                <svg class="btn-search__icon" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="485.213px"
+                                     height="485.213px" viewBox="0 0 485.213 485.213"
+                                     style="enable-background:new 0 0 485.213 485.213" xml:space="preserve">
+                                <g>
+                                <g>
+                                <path d="M363.909,181.955C363.909,81.473,282.44,0,181.956,0C81.474,0,0.001,81.473,0.001,181.955s81.473,181.951,181.955,181.951    C282.44,363.906,363.909,282.437,363.909,181.955z M181.956,318.416c-75.252,0-136.465-61.208-136.465-136.46    c0-75.252,61.213-136.465,136.465-136.465c75.25,0,136.468,61.213,136.468,136.465    C318.424,257.208,257.206,318.416,181.956,318.416z" />
+                                <path d="M471.882,407.567L360.567,296.243c-16.586,25.795-38.536,47.734-64.331,64.321l111.324,111.324    c17.772,17.768,46.587,17.768,64.321,0C489.654,454.149,489.654,425.334,471.882,407.567z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                            </button>
+                        </form>
+                    </div>
+                </li>
+                @if (Session["username"] != null)
+                {
+                    <li class="navigation-top__item top-search--hide" data-hover="true">
+                        <a class="navigation-top__link" href="/Login">Xin chào: @Session["username"]</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="navigation-top__item top-search--hide" data-hover="true">
+                        <a class="navigation-top__link" href="/Login">Đăng nhập</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+    <div class="hamburger-nav" data-menu="toggleClick">
+        <div class="hamburger-nav__menu">
+            <div class="hamburger-nav__icon"></div>
+        </div>
+        <div class="hamburger-nav__bg"></div>
+    </div>
+</div>

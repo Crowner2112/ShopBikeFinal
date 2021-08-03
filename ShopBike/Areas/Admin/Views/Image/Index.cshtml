@@ -1,0 +1,60 @@
+﻿@model PagedList.IPagedList<Models.EF.Image>
+@using PagedList.Mvc
+@{ ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
+
+<div class="right__title">Bảng điều khiển</div>
+<p class="right__desc">Danh sách ảnh</p>
+<div class="right__table">
+    <div class="right__tableWrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Ảnh đại diện</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+    <tr id="row_@item.ID">
+        <td>@item.ID</td>
+        <td><img src="@item.Link" /></td>
+        <td>@item.Product.Name</td>
+        @if (item.MainPic == false)
+        {
+<td>Không</td>
+ }
+else
+{
+<td>Có</td>
+}
+        <td class="right__iconTable"><a href="/Admin/Image/Edit/@item.ID">Sửa</a></td>
+        <td class="right__iconTable">
+            @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID },
+                     new AjaxOptions
+                     {
+                         Confirm = "Do you want to delete this image?",
+                         OnComplete = "$(this).closest('tr').remove()",
+                         HttpMethod = "Delete"
+                     }, new { })
+        </td>
+    </tr>
+}
+            </tbody>
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @ViewBag.searchString }), new PagedListRenderOptions
+   {
+       UlElementClasses = new string[] { "paged_list_ul" },
+       LiElementClasses = new string[] { "paged_list_li" },
+   })
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

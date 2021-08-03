@@ -1,0 +1,43 @@
+﻿@model Models.EF.Account
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Assets/Client/css/login.css">
+    <title>Đăng ký</title>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <!-- Sign Up -->
+            <div class="user signupBx" style="pointer-events: auto">
+                <div class="frmBx" style="top: 0">
+                    @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { @Name = "myform2", @onsubmit = "return validateForm2();" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <h2>Đăng ký</h2>
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "color: red" }, "error")
+                        @Html.EditorFor(model => model.FullName, new { @Name = "username", htmlAttributes = new { placeholder = "Họ và tên" } })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = "Email", @Name = "email" } })
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @placeholder = "SDT", @Name = "phonenumber" } })
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @placeholder = "Địa chỉ", @Name = "address" } })
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Mật khẩu", type = "password" }, @Name = "createpass" })
+                        <input type="password" name="confirmpass" id="" placeholder="Nhập lại mật khẩu">
+                        <input type="submit" value="Đăng ký" />
+                        <div class="signup">Đã có tài khoản? <a href="/Login">Đăng nhập</a></div>}
+                </div>
+                <div class="imgBx" style="top: 0">
+                    <img src="~/Assets/Admin/image/singup.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="~/Assets/Admin/js/mainLogin.js"></script>
+</html>

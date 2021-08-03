@@ -1,0 +1,669 @@
+﻿@-webkit-keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-10rem);
+        transform: translateX(-10rem)
+    }
+
+    80% {
+        -webkit-transform: translateX(1rem);
+        transform: translateX(1rem)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-10rem);
+        transform: translateX(-10rem)
+    }
+
+    80% {
+        -webkit-transform: translateX(1rem);
+        transform: translateX(1rem)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+
+@-webkit-keyframes moveInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(10rem);
+        transform: translateX(10rem)
+    }
+
+    80% {
+        -webkit-transform: translateX(-1rem);
+        transform: translateX(-1rem)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(10rem);
+        transform: translateX(10rem)
+    }
+
+    80% {
+        -webkit-transform: translateX(-1rem);
+        transform: translateX(-1rem)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+
+@-webkit-keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(3rem);
+        transform: translateY(3rem)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(3rem);
+        transform: translateY(3rem)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-style: normal
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+caption, th {
+    text-align: left
+}
+
+q:before, q:after {
+    content: ''
+}
+
+object, embed {
+    vertical-align: top
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%
+}
+
+img, abbr, acronym, fieldset {
+    border: 0
+}
+
+ul li, ol li {
+    list-style-type: none
+}
+
+a, label {
+    cursor: pointer
+}
+
+img, svg {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+    *, *::after, *::before {
+        padding: 0;
+        margin: 0;
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit
+    }
+
+html {
+    font-size: 62.5%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #000000
+}
+
+@media screen and (max-width: 979px) and (min-width: 768px) {
+    body {
+        min-width: 0
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        min-width: 0
+    }
+}
+
+a {
+    text-decoration: none
+}
+
+.sp-appear {
+    display: none
+}
+
+.pc-appear {
+    display: block
+}
+
+@media screen and (max-width: 767px) {
+    .sp-appear {
+        display: block
+    }
+
+    .pc-appear {
+        display: none
+    }
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin-bottom: 6rem
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    -webkit-animation-name: moveInLeft;
+    animation-name: moveInLeft;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out
+}
+
+@media screen and (max-width: 767px) {
+    .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem
+    }
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    -webkit-animation-name: moveInRight;
+    animation-name: moveInRight;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out
+}
+
+@media screen and (max-width: 767px) {
+    .heading-primary--sub {
+        letter-spacing: 0.5rem
+    }
+}
+
+.heading-secondary {
+    font-weight: 700;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    display: inline-block;
+    background-image: -webkit-gradient(linear, left top, right top, from(#7ed56f), to(#28b485));
+    background-image: linear-gradient(to right, #7ed56f, #28b485);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    -webkit-transition: all .2s;
+    transition: all .2s
+}
+
+@media screen and (max-width: 767px) {
+    .heading-secondary {
+        font-size: 2.5rem
+    }
+}
+
+.heading-secondary:hover {
+    -webkit-transform: skewY(2deg) skewX(15deg) scale(1.1);
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0,0,0,0.2)
+}
+
+.heading-tertiary {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase
+}
+
+.paragraph {
+    font-size: 1.6rem
+}
+
+    .paragraph:not(:last-child) {
+        margin-bottom: 1.6rem
+    }
+
+.u-center-text {
+    text-align: center
+}
+
+.u-margin-botton-big {
+    margin-bottom: 8rem
+}
+
+.u-margin-botton-medium {
+    margin-bottom: 4rem !important
+}
+
+.u-margin-botton-small {
+    margin-bottom: 1.5rem
+}
+
+.u-margin-top-big {
+    margin-bottom: 8rem
+}
+
+.u-margin-top-huge {
+    margin-top: 10rem
+}
+
+.u-margin-botton-medium {
+    margin-bottom: 4rem
+}
+
+.product-title {
+    width: 100%;
+    padding-top: 3.5rem
+}
+
+    .product-title > h1 {
+        font-size: 3.4rem;
+        text-transform: uppercase;
+        line-height: 1.2
+    }
+
+.product-row, .product-list__row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0 -0.75rem
+}
+
+.product-col, .product-list__col {
+    width: 33.3333%;
+    padding: 0 0.75rem
+}
+
+.product-list {
+    margin-top: 2.5rem
+}
+
+.product-list__col {
+    width: 100%
+}
+
+.product-list__cat {
+    position: relative;
+    height: 100%;
+    padding-bottom: 2.5rem;
+    z-index: 2
+}
+
+    .product-list__cat.scooter {
+        border-top: 10px solid #640200;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #f4e4e4), to(#fefefe));
+        background: linear-gradient(to bottom, #f4e4e4 20%, #fefefe 100%);
+        background: -webkit-linear-gradient(top, #f4e4e4 20%, #fefefe 100%)
+    }
+
+        .product-list__cat.scooter .product-list__cat-name {
+            color: #640200
+        }
+
+        .product-list__cat.scooter .product-list__item-link:before {
+            background-color: rgba(100,2,0,0.2)
+        }
+
+    .product-list__cat.motorbike {
+        border-top: 10px solid #013599;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #d9e0f0), to(#fefefe));
+        background: linear-gradient(to bottom, #d9e0f0 20%, #fefefe 100%);
+        background: -webkit-linear-gradient(top, #d9e0f0 20%, #fefefe 100%)
+    }
+
+        .product-list__cat.motorbike .product-list__cat-name {
+            color: #013599
+        }
+
+        .product-list__cat.motorbike .product-list__item-link:before {
+            background-color: rgba(1,53,153,0.2)
+        }
+
+    .product-list__cat.sportbike {
+        border-top: 10px solid #000000;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #d3c9c9), to(#fefefe));
+        background: linear-gradient(to bottom, #d3c9c9 20%, #fefefe 100%);
+        background: -webkit-linear-gradient(top, #d3c9c9 20%, #fefefe 100%)
+    }
+
+        .product-list__cat.sportbike .product-list__cat-name {
+            color: #000000
+        }
+
+        .product-list__cat.sportbike .product-list__item-link:before {
+            background-color: rgba(0,0,0,0.2)
+        }
+
+.product-list__cat-name {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    font-size: 3.4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1
+}
+
+.product-list__item {
+    position: relative;
+    display: block;
+    width: 95%;
+    text-align: center;
+    padding-bottom: 2.5rem;
+    z-index: 0
+}
+
+.product-list__item-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 65%;
+    border-top-right-radius: 1.5rem;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(rgba(255,255,255,0)));
+    background: linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0) 100%);
+    background: -webkit-linear-gradient(top, #fff 0%, rgba(255,255,255,0) 100%);
+    z-index: -1
+}
+
+.product-list__item-name {
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    padding-top: 1rem;
+    line-height: 1.2;
+    z-index: 2
+}
+
+.product-list__item-link {
+    display: block;
+    position: relative;
+    z-index: 0;
+    background-image: url(/wp/wp-content/themes/yamaha/assets/img/ico/shadow.png);
+    background-repeat: no-repeat;
+    background-position: left 45px bottom 5px;
+    background-size: 70%;
+    padding: 1rem
+}
+
+@media screen and (max-width: 767px) {
+    .product-list__item-link {
+        background-position: left 34px bottom 10px
+    }
+}
+
+.product-list__item-link:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%) scale(0);
+    transform: translateX(-50%) scale(0);
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    background-color: rgba(100,2,0,0.3);
+    z-index: -1;
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+
+.product-list__item-link:hover::before {
+    -webkit-transform: translateX(-50%) scale(1);
+    transform: translateX(-50%) scale(1)
+}
+
+.product-list__item-img {
+    max-width: 100%;
+    width: auto;
+    height: 16rem;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+
+.product-list__item-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 2.5rem
+}
+
+@media screen and (max-width: 979px) and (min-width: 768px) {
+    .product-col, .product-list__col {
+        width: 100%
+    }
+
+    .product-list {
+        margin-top: 0
+    }
+
+    .product-list__row {
+        margin: 0 1rem
+    }
+
+    .product-list__col {
+        width: 50%;
+        padding: 0 1rem
+    }
+
+    .product-list__cat {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-top: 3.5rem;
+        padding-right: 0
+    }
+
+    .product-list__cat-name {
+        width: 100%
+    }
+
+    .product-list__item {
+        width: 100%
+    }
+
+    .product-list__item-img {
+        height: 14rem
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .overlay {
+        padding-top: 6.4rem;
+        background-image: none !important
+    }
+
+    .product-title > h1 {
+        font-size: 3.5rem
+    }
+
+    .product-col, .product-list__col {
+        width: 100%;
+        margin-top: 2rem
+    }
+
+    .product-list {
+        margin-top: 0
+    }
+
+    .product-list__col {
+        width: 50%
+    }
+
+    .product-list__cat {
+        padding-bottom: 2rem;
+        border-top: none
+    }
+
+        .product-list__cat.scooter .product-list__cat-name, .product-list__cat.motorbike .product-list__cat-name, .product-list__cat.sportbike .product-list__cat-name {
+            color: #ffffff
+        }
+
+        .product-list__cat.scooter {
+            border-top: none;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #f4e4e4), to(#f6e4e4));
+            background: linear-gradient(to bottom, #f4e4e4 20%, #f6e4e4 100%);
+            background: -webkit-linear-gradient(top, #f4e4e4 20%, #f6e4e4 100%)
+        }
+
+            .product-list__cat.scooter .product-list__cat-name {
+                background-color: #640200
+            }
+
+        .product-list__cat.motorbike {
+            border-top: none;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #d9e0f0), to(#d9e0f0));
+            background: linear-gradient(to bottom, #d9e0f0 20%, #d9e0f0 100%);
+            background: -webkit-linear-gradient(top, #d9e0f0 20%, #d9e0f0 100%)
+        }
+
+            .product-list__cat.motorbike .product-list__cat-name {
+                background-color: #013599
+            }
+
+        .product-list__cat.sportbike {
+            border-top: none;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #d5d5d5), to(#d5d5d5));
+            background: linear-gradient(to bottom, #d5d5d5 20%, #d5d5d5 100%);
+            background: -webkit-linear-gradient(top, #d5d5d5 20%, #d5d5d5 100%)
+        }
+
+            .product-list__cat.sportbike .product-list__cat-name {
+                background-color: #000000
+            }
+
+    .product-list__cat-name {
+        width: 100%;
+        font-size: 3rem;
+        padding: 1rem 0;
+        height: auto !important
+    }
+
+    .product-list__item {
+        width: 100%
+    }
+
+        .product-list__item:last-child {
+            padding-bottom: 0
+        }
+
+    .product-list__item-name {
+        font-size: 2rem
+    }
+
+    .product-list__item-img {
+        height: 11rem
+    }
+}
+
+.webp .product-list__item-link {
+    background-image: url(/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/themes/yamaha/assets/img/ico/shadow.png.webp)
+}
