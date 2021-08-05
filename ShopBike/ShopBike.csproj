@@ -209,6 +209,7 @@
     <Content Include="Assets\Admin\assets\logo.svg" />
     <Content Include="Assets\Admin\assets\profile.jpg" />
     <Content Include="Assets\Admin\assets\profile1.jpg" />
+    <Content Include="Assets\Admin\js\mainLogin.js" />
     <Content Include="Assets\Client\css\detail.css" />
     <Content Include="Assets\Client\css\login.css" />
     <Content Include="Assets\Admin\css\main.css" />

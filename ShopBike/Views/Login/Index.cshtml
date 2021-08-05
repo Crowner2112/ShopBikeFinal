@@ -27,9 +27,9 @@
                     {@*@Html.AntiForgeryToken()*@
                     <h2>Đăng nhập</h2>
                     @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "color: red" })
-                    @Html.TextBoxFor(model => model.Email, new { @Name = "email", @class = "form-control p_input", @autofocus = "autufocus", @placeholder = "Email" })
+                    @Html.TextBoxFor(model => model.Email, new { @Name = "email", @id="email", @class = "form-control p_input", @autofocus = "autufocus", @placeholder = "Email" })
                     @Html.PasswordFor(model => model.Password, new { @Name = "password", @class = "form-control p_input", @placeholder = "Mật khẩu" });
-                    <input type="submit" value="Đăng nhập"></input>
+                    <input type="submit" value="Đăng nhập">
                     <p class="signup">không có tài khoản? <a href="/Register">Đăng ký</a></p>
                     <p class="signup">Trở về <a href="/Home">trang chủ</a></p>}
                 </div>
