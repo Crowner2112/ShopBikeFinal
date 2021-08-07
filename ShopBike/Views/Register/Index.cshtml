@@ -18,7 +18,7 @@
             <!-- Sign Up -->
             <div class="user signupBx" style="pointer-events: auto">
                 <div class="frmBx" style="top: 0">
-                    @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { @Name = "myform2", @onsubmit = "return validateForm2();" }))
+                    @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { @Name = "myform2", @onsubmit = "return resisterForm();" }))
                     {
                         @Html.AntiForgeryToken()
                         <h2>Đăng ký</h2>
@@ -38,6 +38,53 @@
             </div>
         </div>
     </section>
+    <script>
+        function resisterForm() {
+            var name = document.myform2.username.value;
+            var email = document.myform2.email.value;
+            var phonenumber = document.myform2.phonenumber.value;
+            var address = document.myform2.address.value;
+            var password = document.myform2.createpass.value;
+            var confirmpass = document.myform2.confirmpass.value;
+
+            if (name == "") {
+                alert("Họ và tên không được để trống!!");
+                document.myform2.name.focus();
+                return false;
+            }
+            if (email == "") {
+                alert("Email không được để trống!!");
+                document.myform2.email.focus();
+                return false;
+            }
+            if (phonenumber == "") {
+                alert("Số điện thoại không được để trống!!");
+                document.myform2.phonenumber.focus();
+                return false;
+            }
+            if (address == "") {
+                alert("Địa chỉ không được để trống!!");
+                document.myform2.address.focus();
+                return false;
+            }
+            if (password == "") {
+                alert("Mật khẩu không được để trống!!");
+                document.myform2.password.focus();
+                return false;
+            }
+            if (confirmpass == "") {
+                alert("Xác nhận mật khẩu!!");
+                document.myform2.confirmpass.focus();
+                return false;
+            }
+            if (confirmpass != password) {
+                alert("Mật khẩu phải trùng nhau!!");
+                document.myform2.confirmpass.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <script type="text/javascript" src="~/Assets/Admin/js/mainLogin.js"></script>
 </body>
-<script src="~/Assets/Admin/js/mainLogin.js"></script>
 </html>
