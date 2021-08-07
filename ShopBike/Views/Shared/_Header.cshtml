@@ -1,54 +1,6 @@
 ﻿@{
     var listCategory = Session["Categories"] as List<Models.EF.Category>;
 }
-@*<style>
-    /*Dropdown menu start*/
-    .dropbtn {
-        color: red;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
-
-        .dropbtn:hover, .dropbtn:focus {
-            background-color: #2980B9;
-        }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        overflow: auto;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-        .dropdown-content a {
-            color: #000;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 14px;
-        }
-
-    .dropdown a:hover {
-        background-color: #ddd;
-    }
-
-    .show {
-        display: block;
-    }
-
-    /*Dropdown menu end*/
-</style>*@
-
 <div class="header-row">
     <div class="header-logo">
         <a href="/">
@@ -93,21 +45,21 @@
                 @if (Session["username"] != null)
                 {
                     <li class="navigation-top__item top-search--hide" data-hover="true">
-                        <a class="navigation-top__link" href="/Login">Xin chào: @Session["username"]</a>
+                        <div class="dropdown">
+                            <a onclick="myFunction()" class="dropbtn">@Session["username"]</a>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Thông tin khách hàng</a>
+                                <a href="#">Giỏ hàng</a>
+                                <a href="#">Đăng nhập</a>
+                                <a href="/Login/Logout">Đăng xuất</a>
+                            </div>
+                        </div>
                     </li>
                 }
                 else
                 {
                     <li class="navigation-top__item top-search--hide" data-hover="true">
-                        <div class="dropdown">
-                            <a onclick="myFunction()" class="dropbtn">Tài khoản</a>
-                            <div id="myDropdown" class="dropdown-content">
-                                <a href="#">Thông tin khách hàng</a>
-                                <a href="#">Giỏ hàng</a>
-                                <a href="#">Đăng nhập</a>
-                                <a href="#">Đăng xuất</a>
-                            </div>
-                        </div>
+                        <a class="navigation-top__link" href="/Login">Đăng nhập</a>
                     </li>
                 }
             </ul>

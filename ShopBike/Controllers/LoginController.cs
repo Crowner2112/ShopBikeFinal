@@ -30,7 +30,6 @@ namespace ShopBike.Areas.Admin.Controllers
                     Session.Add(CommonConstants.EMPLOYEE_SESSION, userSession);
                     Session["Account"] = user.FullName;
                     return Content("<script>window.location = '/Admin/Home';</script>");
-                    //return RedirectToAction("Index", "Home");
                 }
                 else if (result == 0)
                 {
@@ -56,7 +55,7 @@ namespace ShopBike.Areas.Admin.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

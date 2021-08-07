@@ -15,10 +15,9 @@
 <body>
     <section>
         <div class="container">
-            <!-- Sign Up -->
             <div class="user signupBx" style="pointer-events: auto">
                 <div class="frmBx" style="top: 0">
-                    @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { @Name = "myform2", @onsubmit = "return resisterForm();" }))
+                    @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { @Name = "myform2", @onsubmit = "return registerForm();" }))
                     {
                         @Html.AntiForgeryToken()
                         <h2>Đăng ký</h2>
@@ -38,18 +37,19 @@
             </div>
         </div>
     </section>
-    <script>
-        function resisterForm() {
-            var name = document.myform2.username.value;
+    <script type="text/javascript" src="~/Assets/Admin/js/mainLogin.js"></script>
+    <script type="text/javascript">
+        function registerForm() {
+            var name = document.myform2.FullName.value;
             var email = document.myform2.email.value;
             var phonenumber = document.myform2.phonenumber.value;
             var address = document.myform2.address.value;
-            var password = document.myform2.createpass.value;
+            var password = document.myform2.Password.value;
             var confirmpass = document.myform2.confirmpass.value;
-
+            debugger
             if (name == "") {
+                document.myform2.FullName.focus();
                 alert("Họ và tên không được để trống!!");
-                document.myform2.name.focus();
                 return false;
             }
             if (email == "") {
@@ -85,6 +85,5 @@
             return true;
         }
     </script>
-    <script type="text/javascript" src="~/Assets/Admin/js/mainLogin.js"></script>
 </body>
 </html>
