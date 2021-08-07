@@ -48,6 +48,11 @@ namespace Models.DAO
             return db.Images.Find(id);
         }
 
+        public List<Image> GetByCategoryId(int id)
+        {
+            return db.Images.Where(x => x.Product.CategoryID == id && x.MainPic == true).ToList();
+        }
+
         public List<Image> GetByProductId(int id)
         {
             return db.Images.Where(x => x.ProductID == id).ToList();
