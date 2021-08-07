@@ -1,0 +1,19 @@
+﻿@model List<Models.EF.Image>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="details">
+    <h2>Chi tiết danh mục @ViewBag.CategoryName</h2>
+    <ul class="details__ul-list">
+        @foreach (var item in Model)
+        {
+            <li class="details__ul-item">
+                <img src="@item.Link" alt="">
+                <h4>@item.Product.Name</h4>
+                <a href="/Product/Index/@item.ProductID">Xem chi tiết</a>
+            </li>
+        }
+    </ul>
+</div>

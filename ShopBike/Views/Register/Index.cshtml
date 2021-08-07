@@ -72,6 +72,11 @@
                 document.myform2.password.focus();
                 return false;
             }
+            if (password.Length < 8) {
+                alert("Mật khẩu không được ít hơn 8 kí tự!!");
+                document.myform2.password.focus();
+                return false;
+            }
             if (confirmpass == "") {
                 alert("Xác nhận mật khẩu!!");
                 document.myform2.confirmpass.focus();
