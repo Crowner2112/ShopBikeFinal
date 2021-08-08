@@ -35,6 +35,7 @@ namespace ShopBike.Controllers
         }
         public ActionResult SearchProducts(string search)
         {
+            ViewBag.SearchString = search;
             ImageDAO dao = new ImageDAO();
             List<Image> model = dao.GetAllByProductName(search).ToList();
             if (model.Any())
