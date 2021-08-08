@@ -103,5 +103,20 @@ namespace Models.DAO
         {
             return db.Accounts.SingleOrDefault(x => x.Email == email);
         }
+
+        public bool ChangePasswordById(int id, string newPassword)
+        {
+            try
+            {
+                var currentAccount = db.Accounts.Find(id);
+                currentAccount.Password = newPassword;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

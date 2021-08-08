@@ -1,0 +1,72 @@
+﻿@model ShopBike.Models.Cart
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int total = (int)Session["Total"];
+    int count = (int)Session["CountCart"];
+}
+@section Css{
+    <link href="~/Assets/Client/css/payment.css" rel="stylesheet" />
+}
+<div class="payment">
+    @if (Model != null || count > 0)
+    {
+        <h1>Thanh toán</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Ảnh sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá tiền</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            <p>@item.Name</p>
+                        </td>
+                        <td>
+                            <img src="@item.Image" alt="">
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("UpdateQuantity", "Cart"))
+                            {
+                                <input type="hidden" value="@item.ProductID" name="ID_Product">
+                                <input type="text" value="@item.Quantity" name="Quantity">
+                                <input type="submit" value="Update" />}
+                        </td>
+                        <td style="color: #fd475a; font-weight: bold;">@Html.Raw(@String.Format("{0:#,##0}", item.Price)) VNĐ</td>
+                        <td>
+                            @Ajax.ActionLink("Xóa", "Delete", new { id = item.ProductID },
+             new AjaxOptions
+             {
+                 Confirm = "Bạn có muốn xóa sản phẩm này?",
+                 OnComplete = "$(this).closest('tr').remove()",
+                 HttpMethod = "Delete"
+             }, new { })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                </tr>
+            </tfoot>
+        </table>
+        <br>
+        <p class="total">Tổng tiền: @Html.Raw(@String.Format("{0:#,##0}", total)) VNĐ</p>
+        <a href="#" class="btn btn-blue">Thanh toán</a>
+    }
+    else
+    {
+        <div>Bạn chưa có sản phẩm nào trong giỏ hàng</div>
+    }
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

@@ -92,6 +92,7 @@
         @Html.Partial("_Footer")
     </footer>
     <script src="~/wwwroot/js/main.js"></script>
+    @RenderSection("ValidateScripts", required: false)
     <link rel='stylesheet' id='product_css1-css' href='~/Assets/Client/css/product.css' type='text/css' media='all' />
     <script>
         document.addEventListener('DOMContentLoaded', function () {

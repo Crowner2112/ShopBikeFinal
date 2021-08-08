@@ -41,6 +41,7 @@ namespace ShopBike.Areas.Admin.Controllers
                     var user = dao.GetByEmail(model.Email);
                     Session["user"] = user;
                     Session["username"] = user.FullName;
+                    Session["UserID"] = user.ID;
                     Session.Add(CommonConstants.USER_SESSION, user);
                     return Redirect("/Home");
                 }

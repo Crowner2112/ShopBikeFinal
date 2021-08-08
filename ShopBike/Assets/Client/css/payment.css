@@ -1,0 +1,84 @@
+.payment{
+    width: 70%;
+
+    background-color: white;
+
+    margin: auto;
+
+    padding: 100px;
+}
+
+.payment table{
+    border: 1px solid grey;
+
+    text-align: center;
+}
+
+.payment h1{
+    font-size: 3rem;
+
+    text-align: center;
+}
+
+.payment .total{
+    margin: 20px 0;
+
+    font-size: 2rem;
+}
+
+.payment .total input{
+    border: none;
+
+    outline: none;
+}
+
+.payment input[type="button"], button{
+    width: 120px;
+    height: 40px;
+
+    color: white;
+    background-color: rgb(243, 9, 9);
+
+    cursor: pointer;
+
+    border: none;
+    border-radius: 2px;
+
+    font-size: 1.8rem;
+}
+
+.payment input[name="total"]{
+    font-size: 2rem;
+}
+
+.payment button:hover{
+    background-color: rgb(238, 76, 76);
+
+}
+
+.payment table tr th{
+    width: 400px;
+
+    text-align: center;
+
+    font-size: 2rem;
+}
+
+.payment table tr th, td{
+    border: 1px solid grey;
+}
+
+.payment table tbody tr td img{
+    width: 100%;
+}
+
+.payment table tbody tr td input:focus{
+    outline: none;
+
+    border: 2px solid rgb(194, 226, 80);
+    border-radius: 4px;
+}
+
+.payment table tbody tr td, p{
+    font-size: 1.8rem;
+}
