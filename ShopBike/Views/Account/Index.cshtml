@@ -7,9 +7,27 @@
 @section Css{
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">    
 }
+<style>
+    .details{
+        text-align: center;
+    }
+
+    .details .form-group .form-control{
+        margin-left: 356px;
+
+        font-size: 1.3rem;
+    }
+
+        .details .form-group input[type="submit"] {
+            margin-left: 176px;
+            font-size: 1.4rem;
+        }
+    
+</style>
+
 <div class="details">
     <p style="font-size: 20px">Cập nhật tài khoản</p>
-    @using (Html.BeginForm("Update", "Account", FormMethod.Post, new { @style = "font-size: 16px; margin-left: auto; margin-right: auto; text-align: left" }))
+    @using (Html.BeginForm("Update", "Account", FormMethod.Post, new { @style = "font-size: 16px; margin-left: auto; margin-right: auto; text-align: center" }))
     {
         @Html.AntiForgeryToken()
         <div class="form-horizontal">
