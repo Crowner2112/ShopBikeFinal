@@ -1,10 +1,6 @@
 ﻿using Models.DAO;
 using Models.EF;
 using ShopPhone.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ShopBike.Controllers
@@ -12,11 +8,13 @@ namespace ShopBike.Controllers
     public class AccountController : Controller
     {
         private readonly AccountDAO dao = new AccountDAO();
+
         public ActionResult Index(int id)
         {
             var model = dao.GetById(id);
             return View(model);
         }
+
         [HttpPost]
         public ActionResult Update(Account account)
         {
@@ -47,7 +45,7 @@ namespace ShopBike.Controllers
         {
             var currentAccount = dao.GetById(id);
             oldPass = Encryptor.MD5Hash(oldPass);
-            if(currentAccount.Password == oldPass)
+            if (currentAccount.Password == oldPass)
             {
                 newPass = Encryptor.MD5Hash(newPass);
                 dao.ChangePasswordById(id, newPass);

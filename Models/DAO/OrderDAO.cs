@@ -29,6 +29,20 @@ namespace Models.DAO
             }
         }
 
+        public int CreateReturnId(Order entity)
+        {
+            try
+            {
+                var newOrder = db.Orders.Add(entity);
+                db.SaveChanges();
+                return newOrder.ID;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
         public bool Delete(Order entity)
         {
             try

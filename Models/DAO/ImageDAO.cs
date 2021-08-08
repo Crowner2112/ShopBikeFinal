@@ -50,7 +50,7 @@ namespace Models.DAO
 
         public Image GetMainPicByProID(int id)
         {
-            return db.Images.SingleOrDefault(x => x.ProductID== id && x.MainPic == true);
+            return db.Images.SingleOrDefault(x => x.ProductID == id && x.MainPic == true);
         }
 
         public List<Image> GetByCategoryId(int id)

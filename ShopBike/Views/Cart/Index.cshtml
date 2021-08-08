@@ -58,7 +58,14 @@
         </table>
         <br>
         <p class="total">Tổng tiền: @Html.Raw(@String.Format("{0:#,##0}", total)) VNĐ</p>
-        <a href="#" class="btn btn-blue">Thanh toán</a>
+        if (Session["UserID"] != null)
+        {
+            <a href="/Cart/Payment/@Session["UserID"]" class="btn btn-blue">Thanh toán</a>
+        }
+        else
+        {
+            <a href="/Cart/Payment" class="btn btn-blue">Thanh toán</a>
+        }
     }
     else
     {

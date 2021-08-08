@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ShopBike.Models
 {
@@ -16,11 +14,13 @@ namespace ShopBike.Models
 
     public class Cart
     {
-        List<CartItem> items = new List<CartItem>();
+        private List<CartItem> items = new List<CartItem>();
+
         public IEnumerable<CartItem> Items
         {
             get { return items; }
         }
+
         public bool Add(int proID, string name, string image, decimal? price, int quantity = 1)
         {
             var item = items.FirstOrDefault(x => x.ProductID == proID);
@@ -43,6 +43,7 @@ namespace ShopBike.Models
                 return false;
             }
         }
+
         public void Update(int id, int quantity, decimal? price)
         {
             var item = items.Find(x => x.ProductID == id);
@@ -52,11 +53,13 @@ namespace ShopBike.Models
                 item.Price = price;
             }
         }
+
         public void Delete(int id)
         {
             var item = items.Find(x => x.ProductID == id);
             items.Remove(item);
         }
+
         public int Total()
         {
             int total = 0;
