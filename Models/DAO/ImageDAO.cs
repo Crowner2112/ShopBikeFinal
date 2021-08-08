@@ -94,5 +94,10 @@ namespace Models.DAO
         {
             return db.Images.ToList();
         }
+
+        public IEnumerable<Image> GetAllByProductName(string searchString)
+        {
+            return db.Images.Where(x => x.Product.Name.Contains(searchString));
+        }
     }
 }

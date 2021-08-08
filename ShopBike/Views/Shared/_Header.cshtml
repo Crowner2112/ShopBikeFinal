@@ -1,5 +1,7 @@
 ﻿@{
     var listCategory = Session["Categories"] as List<Models.EF.Category>;
+
+
 }
 <div class="header-row">
     <div class="header-logo">
@@ -16,6 +18,17 @@
     <nav class="navigation">
         <div class="navigation-top">
             <ul class="navigation-top__list">
+                <li class="navigation-top__item top-search--hide" data-hover="true">
+                    @using (Html.BeginForm("SearchProducts","Home",FormMethod.Get))
+                    {
+                        <div class="input-group mb-3" style="display: flex">
+                            <input type="text" class="form-control" placeholder="Tìm kiếm tên sản phẩm" name="search">
+                            <div class="input-group-append">
+                                <input class="btn btn-primary" style="border: solid 2px black; color: black; cursor: pointer" type="submit" value="Tìm kiếm">
+                            </div>
+                        </div>
+                    }
+                </li>
                 @foreach (var category in listCategory)
                 {
                     <li class="navigation-top__item top-search--hide" data-hover="true">

@@ -33,5 +33,21 @@ namespace ShopBike.Controllers
             ViewData["Images"] = images;
             return View();
         }
+        public ActionResult SearchProducts(string search)
+        {
+            ImageDAO dao = new ImageDAO();
+            List<Image> model = dao.GetAllByProductName(search).ToList();
+            if (model.Any())
+            {
+                return View(model);
+            }
+            else
+            {
+                return new ContentResult
+                {
+                    Content = "<script language='javascript' type='text/javascript'>alert('Không tìm thấy sản phẩm cần tìm!');location.href='/Home'</script>"
+                };
+            }
+        }
     }
 }

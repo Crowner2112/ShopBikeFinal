@@ -8,7 +8,7 @@
 @section Css{
     <link href="~/Assets/Client/css/payment.css" rel="stylesheet" />
 }
-@using (Html.BeginForm("Payment", "Cart", new { total = cart.Total() }, FormMethod.Post))
+@using (Html.BeginForm("Payment", "Cart", new { total = cart.Total() }, FormMethod.Post, new { @Name = "myform", @onsubmit = "return validateForm();" }))
 {
     <div class="payment" style="height:49vh; padding-top: 20px">
         <p style="font-size: 25px">Thanh toán</p>
@@ -58,4 +58,34 @@
         </div>
     </div>
 }
-</div>
+@section ValidateScripts{
+    <script type="text/javascript">
+        function validateForm() {
+            var name = document.myform.FullName.value;
+            var email = document.myform.Email.value;
+            var phonenumber = document.myform.PhoneNumber.value;
+            var address = document.myform.Address.value;
+            if (name == "") {
+                document.myform.FullName.focus();
+                alert("Họ và tên không được để trống!!");
+                return false;
+            }
+            if (email == "") {
+                alert("Email không được để trống!!");
+                document.myform.Email.focus();
+                return false;
+            }
+            if (phonenumber == "") {
+                alert("Số điện thoại không được để trống!!");
+                document.myform.PhoneNumber.focus();
+                return false;
+            }
+            if (address == "") {
+                alert("Địa chỉ không được để trống!!");
+                document.myform.Address.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+}

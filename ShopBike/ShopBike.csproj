@@ -245,6 +245,7 @@
     <Content Include="Assets\Client\css\payment.css" />
     <Content Include="Assets\Client\css\product.css" />
     <Content Include="Assets\Client\images\favicon.ico" />
+    <Content Include="Assets\Client\images\search-solid.svg" />
     <Content Include="Assets\Client\images\U3Nqx7BbRqs.jpg" />
     <Content Include="Assets\Client\js\mainLogin.js" />
     <Content Include="Assets\Admin\logo.svg" />
@@ -994,6 +995,7 @@
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Home\SearchProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
