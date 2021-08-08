@@ -28,7 +28,6 @@ namespace ShopBike.Controllers
                 cart = new Cart();
                 Session["Cart"] = cart;
             }
-            Session["CountCart"] = cart.Items.Count();
             return cart;
         }
         public ActionResult AddToCart(int id)

@@ -3,13 +3,12 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int total = (int)Session["Total"];
-    int count = (int)Session["CountCart"];
 }
 @section Css{
     <link href="~/Assets/Client/css/payment.css" rel="stylesheet" />
 }
-<div class="payment">
-    @if (Model != null || count > 0)
+<div class="payment" style="height:49vh">
+    @if (Model != null)
     {
         <h1>Thanh toán</h1>
         <table>
@@ -63,7 +62,7 @@
     }
     else
     {
-        <div>Bạn chưa có sản phẩm nào trong giỏ hàng</div>
+        <div style="font-size: 24px">Bạn chưa có sản phẩm nào trong giỏ hàng</div>
     }
 </div>
 
